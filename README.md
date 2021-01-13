@@ -15,7 +15,8 @@ Heroku是一個支援多種程式語言的雲平台即服務(PaaS)，可以在He
 3. [下載範例檔案](https://github.com/luching0823/line-bot-tutorial/archive/master.zip)
 
 ## 範例檔案說明
-1. Procfile：heroku的執行命令，web: {語言} {檔案}，這邊因為我們的語言為 python，要自動執行的檔案為 app.py，因此我們改成 ```web: python app.py```
+1. Procfile：heroku的執行命令，web: {語言} {檔案}，這邊因為我們的語言為 python，要自動執行的檔案為 app.py，因此我們改成 ```web: python app.py```  
+>有更動的話記得不要加副檔名(但編輯時可先改成.txt方便編輯)
 2. requirements.txt：列出所有需要用到的套件，heroku會依據這份文件來安裝指定好的套件
 >之後程式如果有新增套件，要記得也新增到 requitements.txt 裡面
 
@@ -85,13 +86,13 @@ The webhook returned an invalid HTTP status code.
 linebot.exceptions.LineBotApiError: LineBotApiError: status_code=400,
 error_response={"details": [], "message": "Invalid reply token"}
 ```
-注意上面這句：「**Invalid reply token**」，表示**沒辦法用line給的reply token**
-要知道更詳細的原因就必須更動一點程式碼，印出更仔細的資訊
-程式碼更動如下：
-![](https://i.imgur.com/NUJIQEf.png)
+注意上面這句：「**Invalid reply token**」，表示**沒辦法用line給的reply token**  
+要知道更詳細的原因就必須更動程式碼，印出更仔細的資訊  
+程式碼更動如下：  
+![](https://i.imgur.com/NUJIQEf.png)  
 重新推向 Heroku後，再重新按下 Verify，回到 Heroku 應用程式工作日誌，
 然後又重新看到了**linebot.exceptions.LineBotApiError**
-但這次會看到以下：
+但這次會看到以下：  
 ```
 {
    "events": [
@@ -130,11 +131,11 @@ error_response={"details": [], "message": "Invalid reply token"}
 前面"Invalid reply token"，說的就是:
 "replyToken": "00000000000000000000000000000000"
 "replyToken": "ffffffffffffffffffffffffffffffff"
-可能因為這是line測試的罐頭訊息，想解決的話只要在圖中部分加入以下程式：
+可能因為這是line測試的罐頭訊息，想解決的話只要在圖中部分加入以下程式：  
 ```
 if event.source.user_id != "Udeadbeefdeadbeefdeadbeefdeadbeef":
 ```
-![](https://i.imgur.com/Bh9cu5L.png)
+![](https://i.imgur.com/Bh9cu5L.png)  
 就會看到Success囉！
 ![](https://i.imgur.com/T4QtJwe.png)
 

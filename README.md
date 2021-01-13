@@ -1,5 +1,12 @@
 搭建基礎line bot(Python)
 ===
+## 基本流程＆工具介紹
+#### Line Bot運作流程圖
+![](https://i.imgur.com/YX3ARN5.png)
+
+#### Heroku介紹
+Heroku是一個支援多種程式語言的雲平台即服務(PaaS)，可以在Heroku平台上開發或部署各種網站，並不需太著墨在管理或是維護機器。目前Heroku可以透過註冊免費帳號，在使用有限的額度及一些條件限制下開發你的應用程式。
+
 ## 前置作業
 1. 建立[line官方帳號](https://tw.linebiz.com/login/)
 2. 建立[Heroku帳號](https://signup.heroku.com/login)

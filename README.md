@@ -35,6 +35,7 @@ Heroku是一個支援多種程式語言的雲平台即服務(PaaS)，可以在He
 
 ## 將範例line bot推上去Heroku
 1. 安裝[Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)，[Git](https://git-scm.com)
+> MAC 記得先下載[brew](https://brew.sh)
 2. 打開命令提示字元/終端機，移動(cd)到範例檔案的資料夾內
 ![](https://i.imgur.com/Z9eyTHW.png)
 3. 輸入以下指令登入到Heroku
@@ -67,7 +68,7 @@ git push -f heroku master
 1. 進入line後台，選擇要綁定的bot
 2. 在webhook URL輸入Heroku網址，按下Verify直到Success出現
 ```
-{你的Heroku App的名稱}.herokuapp.com/callback
+https://{你的Heroku App的名稱}.herokuapp.com/callback
 ```
 ![](https://i.imgur.com/Paay4wQ.png)
 >注意:{你的Heroku App的名稱}是你之前在Heroku上新增的Heroku App的名稱
